@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="beersApp">
+<head>
+    <meta charset="UTF-8">
+    <title>mean-intro</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+<body>
+    <main ng-controller="BeersCtrl">
+        <header>
+            <h1>Listing {{beersCount}} beers</h1>
+        </header>
+
+        <ul>
+            <li ng-repeat="beer in beers">{{beer.name}}</li>
+        </ul>
+
+        <form ng-submit="insertBeer()">
+            <input type="text" placeholder="Beer name" ng-model="beerName">
+            <button type="submit">Adicionar</button>
+        </form>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+    <script src="https://code.angularjs.org/1.3.15/angular-resource.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers/beers-controller.js"></script>
+</body>
+</html>

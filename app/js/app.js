@@ -1,0 +1,1 @@
+var beersApp = angular.module('beersApp', ['ngResource']);
