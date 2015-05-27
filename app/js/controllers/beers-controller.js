@@ -1,18 +1,18 @@
-beersApp.controller('BeersCtrl', ['$scope', '$resource', function($scope, $resource){
-    var Beer = $resource('/api/beers')
+app.controller('BeersCtrl', ['$scope', '$resource', function($scope, $resource){
+    var Beer = $resource('/api/beers');
 
-    $scope.beersCount = 5;
+    Beer.query(function(result){
+        $scope.beers = result;    
+    });
 
-    $scope.beers = [
-        { name: "beer 1" },
-        { name: "beer 2" },
-        { name: "beer 3" }
-    ];
+    $scope.beers = [];
 
     $scope.insertBeer = function(){
         var beer = new Beer();
         beer.name = $scope.beerName;
-        beer.$save();
+        beer.$save(function(result ){
+            $scope.beers.push( result );
+        });
         $scope.beerName = '';
-    }
+    };
 }]);
